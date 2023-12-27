@@ -46,7 +46,9 @@ const registerUser = async (req, res, next) => {
       .status(201)
       .json(`New user ${(newUser, email)} registered successfully`);
   } catch (error) {
-    return next(new HttpError("User registration failed", 422));
+    return next(
+      new HttpError("User registration failed because it is a catch block", 422)
+    );
   }
 };
 
@@ -213,13 +215,14 @@ const editUser = async (req, res, next) => {
 };
 
 //========> get user
-// POST : api/users/authors
+// GET : api/users/authors
 // Unprotected route
 
 const getAuthors = async (req, res, next) => {
   try {
     const authors = await userModel.find().select("-password");
     res.json(authors);
+    // next();
   } catch (error) {
     return next(new HttpError(error, 422));
   }
