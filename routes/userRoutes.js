@@ -16,6 +16,6 @@ router.post("/login", loginUser);
 router.get("/:id", getUser);
 router.post("/change-avatar", authMiddleware, changeAvatar);
 router.post("/edit-user", authMiddleware, editUser);
-router.get("/authors", getAuthors);
+router.get("/", getAuthors);
 
 module.exports = router;
