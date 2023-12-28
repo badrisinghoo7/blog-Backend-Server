@@ -15,7 +15,7 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/:id", getUser);
 router.post("/change-avatar", authMiddleware, changeAvatar);
-router.post("/edit-user", authMiddleware, editUser);
+router.patch("/edit-user", authMiddleware, editUser);
 router.get("/", getAuthors);
 
 module.exports = router;
