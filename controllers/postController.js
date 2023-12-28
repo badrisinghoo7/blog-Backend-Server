@@ -87,6 +87,7 @@ const getPost = async (req, res, next) => {
 const getPosts = async (req, res, next) => {
   try {
     const posts = await postModel.find().sort({ updatedAt: -1 });
+    res.status(200).json(posts);
   } catch (error) {
     return next(new HttpError(error));
   }
